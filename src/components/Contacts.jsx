@@ -42,6 +42,11 @@ const [contact,setContact] = useState({
     })
  };
 
+ const deletHandler =  (id) => {
+    const newContacts =contacts.filter((contact ) => contact.id !== id);
+    setContacts(newContacts)
+ }
+
   return (
     <div>
         <div>
@@ -60,7 +65,7 @@ const [contact,setContact] = useState({
             <button onClick={addHandler}>Add Contact</button>
         </div>
         <div>{alert && <p>{alert}</p>}</div>
-        <ContactsList contacts={contacts} />
+        <ContactsList contacts={contacts} deletHandler={deletHandler}/>
     </div>              
   )
 }
